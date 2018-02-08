@@ -1,36 +1,36 @@
 object F_gui: TF_gui
-  Left = 237
+  Left = 650
   Height = 529
-  Top = 186
+  Top = 154
   Width = 481
   Caption = 'telegram bot tes'
   ClientHeight = 529
   ClientWidth = 481
   OnCreate = FormCreate
-  LCLVersion = '1.2.6.0'
+  LCLVersion = '1.8.0.6'
   object m_log: TMemo
     Left = 0
-    Height = 312
+    Height = 304
     Top = 0
     Width = 481
-    Align = alClient
+    Align = alTop
     TabOrder = 0
   end
   object GroupBox1: TGroupBox
     Left = 0
-    Height = 212
-    Top = 317
+    Height = 200
+    Top = 329
     Width = 481
     Align = alBottom
     Caption = 'Commands'
-    ClientHeight = 190
-    ClientWidth = 473
+    ClientHeight = 185
+    ClientWidth = 477
     TabOrder = 1
     object b_set_token: TButton
       Left = 0
       Height = 25
       Top = 0
-      Width = 473
+      Width = 477
       Align = alTop
       Caption = 'b_set_token'
       OnClick = b_set_tokenClick
@@ -38,12 +38,12 @@ object F_gui: TF_gui
     end
     object GroupBox2: TGroupBox
       Left = 0
-      Height = 165
+      Height = 160
       Top = 25
-      Width = 473
+      Width = 477
       Align = alClient
-      ClientHeight = 158
-      ClientWidth = 465
+      ClientHeight = 156
+      ClientWidth = 473
       TabOrder = 1
       Visible = False
       object b_getmessages: TButton
@@ -57,9 +57,9 @@ object F_gui: TF_gui
       end
       object cb_mark_as_read: TCheckBox
         Left = 136
-        Height = 18
+        Height = 21
         Top = 7
-        Width = 129
+        Width = 97
         Caption = 'cb_mark_as_read'
         TabOrder = 1
       end
@@ -78,9 +78,17 @@ object F_gui: TF_gui
     Cursor = crVSplit
     Left = 0
     Height = 5
-    Top = 312
+    Top = 324
     Width = 481
     Align = alBottom
     ResizeAnchor = akBottom
+  end
+  object Edit1: TEdit
+    Left = 40
+    Height = 23
+    Top = 304
+    Width = 363
+    TabOrder = 3
+    Text = '514072731:AAG9XxgxNCF0-roMhOV1_tw9w_kWm7c1iao'
   end
 end

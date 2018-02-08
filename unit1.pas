@@ -6,8 +6,9 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, ssl_openssl, HTTPSend, fpjson, jsonparser, inifiles, dateutils;
-
+  ExtCtrls, ssl_openssl, HTTPSend, fpjson, jsonparser, inifiles, dateutils, blcksock;
+//Para que funcionen las peticiones ssl hay que instalar libssl-dev en el sistema.
+//sudo apt install ssl-dev
 type
 
   { TF_gui }
@@ -17,6 +18,7 @@ type
     b_getmessages: TButton;
     b_set_token: TButton;
     cb_mark_as_read: TCheckBox;
+    Edit1: TEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     m_log: TMemo;
@@ -108,7 +110,7 @@ end;
 
 procedure TF_gui.FormCreate(Sender: TObject);
 begin
-  ini:=tinifile.Create(ExtractFileDir(ParamStrUTF8(0))+'telegram_bot.ini');
+  ini:=tinifile.Create(ExtractFileDir(ParamStr(0))+'telegram_bot.ini');
   telegram_token:=ini.ReadString('Settings', 'telegram_token','');
   if telegram_token <> '' then
   begin
@@ -130,6 +132,8 @@ var
 begin
   telegram_token:=Trim(telegram_token);
   HTTPClient:=THTTPSend.Create;
+  HTTPClient.Sock.SSL.SSLType := LT_SSLv3;
+  HTTPClient.Sock.HTTPTunnelPort:= '443';
   mstr:= tmemorystream.create;
   result:=false;
   try
