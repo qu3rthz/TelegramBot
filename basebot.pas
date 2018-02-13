@@ -21,7 +21,7 @@ interface
 
 uses
   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs,
-  ssl_openssl, HTTPSend, fpJSON, JSONParser;
+  ssl_openssl, HTTPSend, fpJSON, JSONParser, LCLTranslator;
 
 type
   TBaseBot = class(TComponent)
@@ -53,6 +53,9 @@ const
   BOT_BASE_URL =  'https://api.telegram.org/bot';
   BOT_GETME =     '/getMe';
 
+resourcestring
+  rsBotFailConnection = 'No es pot connectar amb el bot';
+
 procedure Register;
 
 implementation
@@ -72,6 +75,7 @@ begin
   inherited Destroy;
 end;
 
+//Token
 procedure TBaseBot.SetToken (const Value: string);
 begin
   if Value <> FToken then begin
@@ -93,13 +97,15 @@ begin
       MemStream.Position := 0;
       JSONParser := TJSONParser.Create(MemStream);
       JSONDoc := TJSONObject(JSONParser.Parse);
-      if (JSONDoc.FindPath('ok').AsBoolean) {and (JSONDoc.FindPath('result.is_bot').AsBoolean)} then begin
+      if (JSONDoc.FindPath('ok').AsBoolean) and (JSONDoc.FindPath('result.is_bot').AsBoolean) then begin
         FBotChecked := true;
         FBotId := JSONDoc.FindPath('result.id').AsString;
         FBotName := JSONDoc.FindPath('result.first_name').AsString;
         FBotUserName := '@' + JSONDoc.FindPath('result.username').AsString;
         result := true;
       end;
+    end else begin
+      raise Exception.Create(rsBotFailConnection);
     end;
   end;
 end;
