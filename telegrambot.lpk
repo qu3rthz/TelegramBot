@@ -9,17 +9,25 @@
         <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
     </CompilerOptions>
-    <Version Release="1"/>
-    <Files Count="2">
+    <Version Minor="1"/>
+    <Files Count="4">
       <Item1>
-        <Filename Value="text.txt"/>
-        <Type Value="Text"/>
+        <Filename Value="tlgbot.base.pas"/>
+        <UnitName Value="TlgBot.Base"/>
       </Item1>
       <Item2>
-        <Filename Value="basebot.pas"/>
-        <HasRegisterProc Value="True"/>
-        <UnitName Value="BaseBot"/>
+        <Filename Value="tlgbot.external.pas"/>
+        <UnitName Value="TlgBot.External"/>
       </Item2>
+      <Item3>
+        <Filename Value="tlgbot.bot.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TlgBot.Bot"/>
+      </Item3>
+      <Item4>
+        <Filename Value="tlgbot.types.pas"/>
+        <UnitName Value="TlgBot.Types"/>
+      </Item4>
     </Files>
     <i18n>
       <EnableI18N Value="True"/>
@@ -31,7 +39,7 @@
         <PackageName Value="laz_synapse"/>
       </Item1>
       <Item2>
-        <PackageName Value="LCL"/>
+        <PackageName Value="LCLBase"/>
       </Item2>
       <Item3>
         <PackageName Value="FCL"/>
@@ -43,8 +51,5 @@
     <PublishOptions>
       <Version Value="2"/>
     </PublishOptions>
-    <CustomOptions Items="ExternHelp" Version="2">
-      <_ExternHelp Items="Count"/>
-    </CustomOptions>
   </Package>
 </CONFIG>

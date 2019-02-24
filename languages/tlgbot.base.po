@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
-#: basebot.rsbotfailconnection
-msgid "No es pot connectar amb el bot"
+#: tlgbot.base.rsbottokennotfound
+msgid "No hi ha un token vàlid"
 msgstr ""
 

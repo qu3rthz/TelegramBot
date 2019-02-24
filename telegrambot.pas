@@ -8,13 +8,13 @@ unit TelegramBot;
 interface
 
 uses
-  BaseBot, LazarusPackageIntf;
+  TlgBot.Base, TlgBot.External, TlgBot.Bot, TlgBot.Types, LazarusPackageIntf;
 
 implementation
 
 procedure Register;
 begin
-  RegisterUnit('BaseBot', @BaseBot.Register);
+  RegisterUnit('TlgBot.Bot', @TlgBot.Bot.Register);
 end;
 
 initialization
