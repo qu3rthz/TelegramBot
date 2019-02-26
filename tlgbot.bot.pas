@@ -1,6 +1,5 @@
 unit TlgBot.Bot;
-{737948553:AAHoTvy0umcInWASsPYSt-qsK0ak41j-n8Y}
-{Chat de pruebas: -324813384-czw}
+
 {Define el bot que vamos a usar y permite comprobar la conexión
 Propiedades:
   Token: El token con el que nos vamos a conectar (rw)

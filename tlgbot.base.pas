@@ -1,4 +1,7 @@
 unit TlgBot.Base;
+{737948553:AAHoTvy0umcInWASsPYSt-qsK0ak41j-n8Y}
+{Chat de pruebas: -324813384-czw}
+{Objetos: Bot, User, Chat, Updater}
 
 {$mode objfpc}{$H+}
 
